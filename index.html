@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
+    <title>RDCLR.HOME</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/text.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/about_mob.css">
+    <link rel="stylesheet" href="styles/text_mob.css">
+
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1">
+</head>
+<body>
+    <header>
+        <a href="main.html"><img class="logo" src="images/logo.png" alt="Логотип RedCollar"></a>
+        <nav>
+            <a href="about.html">о нас</a>
+            <a href="merch.html">мерч</a>
+            <a href="contacts.html">контакты</a>
+        </nav>
+        <button class="burger"></button>
+    </header>
+
+    <main>
+        <article>
+            <a href="main.html" class="back"><img src="images/back.png" alt="Стрелка назад"></a>
+            <h1>О нас</h1>
+            <p>Серия офлайн-мероприятий от&nbsp;Red Collar&nbsp;&mdash; короткие лекции и&nbsp;живые обсуждения
+                прямо у&nbsp;нас в&nbsp;офисе. Минимум гостей, неформальная обстановка. Ждём дома!</p>
+
+            <h2>Как к&nbsp;нам попасть?</h2>
+            <p>Всё просто&nbsp;&mdash; будь в&nbsp;числе первых, кто запишется на встречу после анонса даты.
+                Количество мест объявляем вместе с&nbsp;анонсом.</p>
+
+            <h3>Где с&nbsp;нами пообщаться?</h3>
+            <p>Чат в&nbsp;телеграме, в&nbsp;котором общаемся, отвечаем на вопросы, публикуем анонсы мероприятий
+                в&nbsp;первую очередь <br/>
+                <a href="URL" name="Ссылка на телеграм-канал">ttttt.me/rdclr_home</a></p>
+
+            <blockquote>Разберём все по&nbsp;полочкам</blockquote>
+
+            <h2>Наша команда</h2>
+            <p>Обладаем обширными компетенциями и&nbsp;экспертными
+                навыками в&nbsp;таких сферах как: </p>
+            <ol>
+                <li>Менеджмент</li>
+                <li>Дизайн</li>
+                <li>Frontend</li>
+                <li>Backend</li>
+            </ol>
+            <p>Узнаем что актуально прямо сейчас, какие направления развиваются, как самому начать изучать сферу,
+                наработать нужные навыки и&nbsp;войти в&nbsp;профессию.</p>
+
+            <div class="photo_report">
+                <h2>Фотоотчет</h2>
+                <div class="fraction">
+                    <div id="photo_number">1</div>/<div id="photo_amount">3</div>
+                </div>
+
+                <div class="slider">
+                    <div class="slider-hidden">
+                        <div class="slider-wrapper">
+                            <div class="slide">
+                                <img src="images/photo_report.png" alt="Фото со встречи RedCollar">
+                            </div>
+                            <div class="slide">
+                                <img src="images/we_are_located.png" alt="Фото со встречи RedCollar">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-buttons">
+                        <div class="prev-button"><img src="images/left_arrow.png" alt="назад"></div>
+                        <div class="next-button"><img src="images/right_arrow.png" alt="вперёд"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Последние спикеры</h2>
+            <p>Имено они читают лекции на RDCLR.HOME! А&nbsp;если не читают,
+                то находятся где-то в&nbsp;офисе и&nbsp;им можно задать любые вопросы.</p>
+            <ul>
+                <li>Иван Марков</li>
+                <li>Иван Вялов</li>
+                <li>Надежда Кочеткова</li>
+                <li>Артём Фёдоров</li>
+                <li>Андрей Глевчук</li>
+            </ul>
+
+            <h2>Мы находимся</h2>
+            <div class="image_sign">
+                <img src="images/we_are_located.png" alt="Неоновая вывеска RedCollar">
+                <p>ул. Текстильщиков, 5б, Воронеж<p>
+            </div>
+        </article>
+
+        <article>
+            <h1>Записаться <br/> на RDCLR.HOME</h1>
+            <div class="message-text"></div>
+            <form action="/my_method">
+
+                    <select name="choice">
+                        <option value="0"></option>
+                        <option value="1">Студент</option>
+                        <option value="2">Начинающий дизайнер</option>
+                        <option value="3">Практикующий дизайнер</option>
+                        <option value="4">Хочу освоить другую профессию</option>
+                    </select>
+
+                <input type="email" placeholder="E-mail">
+                <input type="tel" placeholder="Телефон">
+                <textarea placeholder="Комментарий"></textarea>
+                <input type="checkbox" class="checkbox" id="checkbox" checked/>
+                <label for="checkbox">Даю согласие на обработку своих <a>персональных данных</a></label>
+                <button class="btn" type="submit">Отправить</button>
+            </form>
+            <img class="up" src="images/up.png" alt="вверх">
+        </article>
+    </main>
+    <footer>
+        <div>
+            <a href="">vk</a>
+            <a href="">fb</a>
+            <a href="">ig</a>
+        </div>
+        <nav>
+            <a href="">о нас</a>
+            <a href="">мерч</a>
+            <a href="">контакты</a>
+        </nav>
+    </footer>
+    <div class="popup">
+        <div class="overlay">
+            <div class="popup-inner"></div>
+        </div> <!--полупрозрачный чёрный фон-->
+    </div>
+</body>
+</html>
