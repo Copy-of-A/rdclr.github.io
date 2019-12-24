@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
+    <title>RDCLR.HOME</title>
+    <link rel="stylesheet" href="style.css">
+<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5mFaAMgEY1LQ1Hp7ZoQT0tAX6zgcMKE4"></script>-->
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1">
+</head>
+<body>
+    <header>
+        <a href="main.html"><img class="logo" src="images/logo.png" alt="Логотип RedCollar"></a>
+        <nav>
+            <a href="about.html">о нас</a>
+            <a href="merch.html">мерч</a>
+            <a href="contacts.html">контакты</a>
+        </nav>
+        <button class="burger"></button>
+    </header>
+    <main>
+        <article>
+            <a href="main.html" class="back"><img src="images/back.png" alt="Стрелка назад"></a>
+            <h1>Контакты</h1>
+            <h2>Мы в социальных сетях</h2>
+            <div class="contacts">
+                <span>VKONTAKTE</span>
+                <span>FACEBOOK</span>
+                <span>INSTAGRAM </span>
+            </div>
+
+            <h3>Чат RDCLR.HOME в Telegram</h3>
+            <div class="contacts">
+                <span>ttttt.me/rdclr_home</span>
+            </div>
+            <h2>Мы находимся</h2>
+            <div id="map"></div>
+<!--            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2473.5724419507815!2d39.16666171520806!3d51.68596880545294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x413b2eee23cd4f23%3A0xb7dd671d6e132302!2sRed%20Collar!5e0!3m2!1sru!2sru!4v1577176074860!5m2!1sru!2sru"-->
+<!--                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="">-->
+
+<!--            </iframe>-->
+            <p class="we_located">ул. Текстильщиков, 5б, Воронеж</p>
+
+            <h3 class="top_60">Как к нам добраться</h3>
+            <p>Наш офис расположен в бизнес-парке «Текстильщики». От остановки «Политехнический институт»
+                до бизнес-парка ходит бесплатное маршрутное такси.</p>
+
+            <h3 class="top_60">Время отправления автобуса</h3>
+            <div class="schedule">
+                <div class="_time"><span>18:10</span></div>
+                <div class="_time"><span>18:10</span></div>
+                <div class="_time"><span>18:30</span></div>
+                <div class="_time"><span>18:45</span></div>
+                <div class="_time"><span>19:00</span></div>
+                <div class="_time"><span>19:10</span></div>
+            </div>
+
+            <h2>Стать частью команды</h2>
+            <p>Нам всегда нужны талантливые люди, которые горят своим делом и готовы воплощать самые смелые идеи.
+                Хочешь к нам? Присылай рассказ о себе на почту.</p>
+            <div class="contacts">
+                <span class="mail">hello@redcollar.ru</span>
+            </div>
+        </article>
+        <article>
+            <h1>Записаться <br/> на RDCLR.HOME</h1>
+            <form action="/my_method">
+
+                <select>
+                    <option value="0"></option>
+                    <option value="1" selected>Студент</option>
+                    <option value="2">Начинающий дизайнер</option>
+                    <option value="3">Практикующий дизайнер</option>
+                    <option value="4">Хочу освоить другую профессию</option>
+                </select>
+                <input type="email" placeholder="E-mail">
+                <input type="tel" placeholder="Телефон">
+                <textarea placeholder="Комментарий"></textarea>
+                <input type="checkbox" class="checkbox" id="checkbox" checked/>
+                <label for="checkbox">Даю согласие на обработку своих <a>персональных данных</a></label>
+                <button class="btn" type="submit">Отправить</button>
+            </form>
+            <img id="up" src="images/up.svg" alt="вверх">
+        </article>
+    </main>
+    <footer>
+        <div>
+            <a href="">vk</a>
+            <a href="">fb</a>
+            <a href="">ig</a>
+        </div>
+        <nav>
+            <a href="about.html">о нас</a>
+            <a href="merch.html">мерч</a>
+            <a href="contacts.html">контакты</a>
+        </nav>
+    </footer>
+<!--    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>-->
+</body>
+</html>

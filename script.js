@@ -1,5 +1,95 @@
 "use strict";
 
+document.addEventListener('DOMContentLoaded', function () {
+    slider_func();
+    if (window.innerWidth > 700) add_remove_header();
+    animation_main();
+    createFormWrapper();
+    makeBurger();
+    scrollUp();
+    initMap();
+
+    //слайдер
+    const sliders = document.querySelectorAll('.slider');
+    for (let i = 0; i < sliders.length; i++) {
+        createSlider(sliders[i]);
+    }
+});
+
+/*инициализация карты*/
+function initMap() {
+
+    // В переменной map создаем объект карты GoogleMaps и вешаем эту переменную на <div id="map"></div>
+    const map = new google.maps.Map(document.getElementById('map'), {
+        // При создании объекта карты необходимо указать его свойства
+        // center - определяем точку на которой карта будет центрироваться
+        center: {lat: 51.68602324, lng: 39.16879714},
+        // zoom - определяет масштаб. 0 - видно всю платнеу. 18 - видно дома и улицы города.
+        zoom: 16,
+
+        //Добавляем свои стили для отображения карты
+        styles: [
+            {"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},
+            {"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},
+            {"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"road","elementType":"all","stylers":[{"saturation":-100}, {"lightness":45}]},
+            {"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},
+            {"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
+            {"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
+    });
+
+    // Создаем маркер на карте
+    const marker = new google.maps.Marker({
+
+        // Определяем позицию маркера
+        position: {lat: 55.760186, lng: 37.618711},
+
+        // Указываем на какой карте он должен появится. (На странице ведь может быть больше одной карты)
+        map: map,
+
+        // Пишем название маркера - появится если навести на него курсор и немного подождать
+        title: 'Red Collar',
+
+        // Укажем свою иконку для маркера
+        icon: 'https://img1.freepng.ru/20180508/ayw/kisspng-drawing-pin-computer-icons-clip-art-5af20b12b830a6.6337267515258119867545.jpg'
+    });
+
+    // Создаем наполнение для информационного окна
+    // const contentString = '<div id="content">'+
+    //     '<div id="siteNotice">'+
+    //     '</div>'+
+    //     '<h1 id="firstHeading" class="firstHeading">Большой театр</h1>'+
+    //     '<div id="bodyContent">'+
+    //     '<p>Госуда́рственный академи́ческий Большо́й теа́тр Росси́и, или просто Большой театр — один из крупнейших' +
+    //     'в России и один из самых значительных в мире театров оперы и балета.</p>'+
+    //     '<p><b>Веб-сайт:</b> <a href="http://www.bolshoi.ru/" target="_blank">bolshoi.ru</a>'+
+    //     '</p>'+
+    //     '</div>'+
+    //     '</div>';
+    //
+    // // Создаем информационное окно
+    // const infowindow = new google.maps.InfoWindow({
+    //     content: contentString,
+    //     maxWidth: 400
+    // });
+
+    // Создаем прослушивание, по клику на маркер - открыть инфо-окно infowindow
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+
+}
+
+//событие стрелки вверх
+function scrollUp() {
+    const up = document.getElementById("up");
+    if (!up) return;
+    up.addEventListener('click', () => {
+        window.scrollTo(0,0);
+    });
+}
+
 /**
  * Слайдер
  */
@@ -60,20 +150,6 @@ function createSlider(slider) {
     })
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    slider_func();
-    add_remove_header();
-    animation_main();
-    createFormWrapper();
-
-    //слайдер
-    const sliders = document.querySelectorAll('.slider');
-    for (let i = 0; i < sliders.length; i++) {
-        createSlider(sliders[i]);
-    }
-});
-
-
 /**
  * Скрытие/показ хедера
  */
@@ -95,7 +171,7 @@ function add_remove_header(){
         }
         else {
             scrolledBack +=(lastScrollTop - scrolled);
-            if (scrolledBack >= maxScrolledBack && hidden){
+            if ((scrolledBack >= maxScrolledBack && hidden) || scrolled <= 50) {
                 header.classList.remove('hidden');
                 hidden = false;
             }
@@ -137,8 +213,10 @@ function animation_main(){
         nTop = (event.clientY - windowHeight / 2) / 25 * (-1);
     });
 }
-
-function createForm(form, mess) {
+/**
+ * События формы
+ */
+function createForm(form) {
     const action = form.action;
     const elements = form.elements;
 
@@ -149,18 +227,15 @@ function createForm(form, mess) {
 
         for(let i = 0; i< elements.length; i++){
             let el = elements[i];
-            console.log(el.type);
             //if (!el.dataset.required) continue;
             if (el.type === 'text' || el.type === 'tel' || el.type === 'email' || el.tagName === 'textarea'){
-                console.log(el.type);
                 if (!el.value) {
                     el.classList.add('error');
-                    console.log("error");
                     el.addEventListener('input', removeClass);
                     result = false;
                 }
             }
-            if (el.type === 'select'){
+             if (el.type === 'select'){
                 console.log(el.type);
                 if (!el.value) {
                     el.classList.add('error');
@@ -172,7 +247,6 @@ function createForm(form, mess) {
             else if (el.type === 'checkbox' || el.type === 'radio'){
                 if(!el.checked) {
                     el.classList.add('error');
-                    console.log("error");
                     el.addEventListener('change', removeClass);
                     result = false;
                 }
@@ -180,7 +254,6 @@ function createForm(form, mess) {
             else if (el.tagName.toLocaleLowerCase() ==='select' && !el.getAttribute('multiply')){
                 if (el.selectedIndex === 0) {
                     el.classList.add('error');
-                    console.log("error");
                     el.addEventListener('change', removeClass);
                     result = false;
                 }
@@ -195,47 +268,54 @@ function createForm(form, mess) {
     }
 
     form.addEventListener('submit', function (event) {
-        console.log("submit");
         event.preventDefault();
+        let btn_close = document.createElement('button');
         let div = document.createElement('div');
         let h2 = document.createElement('h2');
         let p = document.createElement('p');
         document.documentElement.classList.add("popupActive");
         const popup_inner = document.querySelector('.popup-inner');
         popup_inner.innerHTML = '';
+        popup_inner.append(btn_close);
+        btn_close.setAttribute("id", "close");
         popup_inner.append(div);
         div.append(h2);
         div.append(p);
 
+        btn_close.addEventListener('click', function () {
+            document.documentElement.classList.remove('popupActive');
+        });
+
         if(!validate()) {
             h2.innerHTML = 'Ошибка!';
-            p.innerHTML = 'Проверьте корректность вводимых данных'
+            p.innerHTML = 'Проверьте корректность вводимых данных';
+            p.style.color = '#EC3332';
             return;
         }
         h2.innerHTML = 'Поздравляем!';
-        p.innerHTML = 'Вы записались на RDCLR.HOME'
-        //mess.innerHTML = 'Отправлено';
+        p.innerHTML = 'Вы записались на RDCLR.HOME';
+        h2.style.color = '#000000';
     })
 }
 
 function createFormWrapper(){
     const forms = document.querySelectorAll('form');
-    const messageField = document.querySelector('.message-text');
     const overlay = document.querySelector('.overlay');
-    if (!messageField || !overlay) return;
+    if (!forms || !overlay) return;
 
 
     overlay.addEventListener('click', function () {
         document.documentElement.classList.remove('popupActive');
     });
-    Array.from(forms).forEach(form => createForm(form, messageField))
+
+    Array.from(forms).forEach(form => createForm(form))
 }
 
 
 /**
  * Меню бургер для мобилки
  */
-document.addEventListener('DOMContentLoaded', function () {
+function makeBurger(){
     let button = document.querySelector(".burger");
     let menu = document.querySelector("nav");
     if (!button || !menu) return;
@@ -252,5 +332,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     /*считаем ширину строки, ширину враппера и каждый раз увеличиваем на 1*/
-});
+}
 

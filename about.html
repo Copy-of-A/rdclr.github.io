@@ -5,11 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
     <title>RDCLR.HOME</title>
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/text.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/about_mob.css">
-    <link rel="stylesheet" href="styles/text_mob.css">
 
     <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,17 +97,15 @@
 
         <article>
             <h1>Записаться <br/> на RDCLR.HOME</h1>
-            <div class="message-text"></div>
             <form action="/my_method">
 
-                    <select name="choice">
-                        <option value="0"></option>
-                        <option value="1">Студент</option>
-                        <option value="2">Начинающий дизайнер</option>
-                        <option value="3">Практикующий дизайнер</option>
-                        <option value="4">Хочу освоить другую профессию</option>
-                    </select>
-
+                <select>
+                    <option value="0"></option>
+                    <option value="1" selected>Студент</option>
+                    <option value="2">Начинающий дизайнер</option>
+                    <option value="3">Практикующий дизайнер</option>
+                    <option value="4">Хочу освоить другую профессию</option>
+                </select>
                 <input type="email" placeholder="E-mail">
                 <input type="tel" placeholder="Телефон">
                 <textarea placeholder="Комментарий"></textarea>
@@ -119,7 +113,7 @@
                 <label for="checkbox">Даю согласие на обработку своих <a>персональных данных</a></label>
                 <button class="btn" type="submit">Отправить</button>
             </form>
-            <img class="up" src="images/up.png" alt="вверх">
+            <img id="up" src="images/up.svg" alt="вверх">
         </article>
     </main>
     <footer>
@@ -129,15 +123,14 @@
             <a href="">ig</a>
         </div>
         <nav>
-            <a href="">о нас</a>
-            <a href="">мерч</a>
-            <a href="">контакты</a>
+            <a href="about.html">о нас</a>
+            <a href="merch.html">мерч</a>
+            <a href="contacts.html">контакты</a>
         </nav>
     </footer>
     <div class="popup">
-        <div class="overlay">
-            <div class="popup-inner"></div>
-        </div> <!--полупрозрачный чёрный фон-->
+        <div class="overlay"></div> <!--полупрозрачный чёрный фон-->
+        <div class="popup-inner"></div>
     </div>
 </body>
 </html>
