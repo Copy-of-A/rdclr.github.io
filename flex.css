@@ -1,0 +1,55 @@
+.container{
+    height: 100vh; /*от высоты окна*/
+    display: grid;
+    /*counter-reset: count;*/
+    grid-column-gap: 2px;
+    grid-row-gap: 10px;
+    grid-template-areas: 'h h h'
+                        'c c .'
+                        'f f f';
+    /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+    grid-template-columns: repeat(3, 1fr);
+    /*grid-auto-rows: 100px;*/
+    grid-template-rows: 100px auto 100px;
+
+}
+
+header{
+    grid-area: h;
+    background: yellow;
+}
+
+.content{
+    /*counter-increment: count;*/
+    background: darkred;
+    grid-area: c;
+}
+
+footer{
+    background: blue;
+    grid-area: f;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 70px;
+}
+
+.cards div{
+    background-color: black;
+    box-shadow: 10px 10px 0 0 #EC3332;
+    min-height: 20vw;
+    /*max-width: 466px;
+    max-height: 333px;*/
+    /*padding:20%;*/
+}
+
+.cards img{
+    width: 20vw;
+}
+
+main{
+    margin-right: 80px;
+    margin-left: 350px;
+}
